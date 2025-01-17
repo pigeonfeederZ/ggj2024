@@ -1,6 +1,7 @@
 /Library/
 /Logs/
 /Temp/
+/UserSettings/
 *.csproj
 *.vscode
 *.sln
