@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour
 {
@@ -7,14 +8,13 @@ public class Slot : MonoBehaviour
     public int buyAmount;
     private Slot_Background slotBackground;
     private Slot_Image slotImage;
-    private int priceNow;
-    private int priceOrigin;
+    public int priceNow;
+    public int priceOrigin;
 
     private void Awake()
     {
         slotBackground = transform.GetComponentInChildren<Slot_Background>();
         slotImage = transform.GetComponentInChildren<Slot_Image>();
-        ShowGoods();
     }
 
     public void AddGoods(Goods goods, int amount)
@@ -34,6 +34,16 @@ public class Slot : MonoBehaviour
         this.buyAmount -= amount;
     }
 
+    public void SetPriceNow(int priceNow)
+    {
+        this.priceNow = priceNow;
+    }
+
+    private void Start()
+    {
+        SetPriceNow(priceOrigin);
+    }
+
     public void Clear()
     {
         goods = null;
@@ -51,4 +61,6 @@ public class Slot : MonoBehaviour
     {
         slotBackground.ChangeSprite(breakPossibility);
     }
+
+
 }
