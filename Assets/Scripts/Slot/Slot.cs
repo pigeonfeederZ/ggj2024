@@ -7,6 +7,8 @@ public class Slot : MonoBehaviour
     public int buyAmount;
     private Slot_Background slotBackground;
     private Slot_Image slotImage;
+    private int priceNow;
+    private int priceOrigin;
 
     private void Awake()
     {
@@ -19,6 +21,7 @@ public class Slot : MonoBehaviour
     {
         this.goods = goods;
         this.buyAmount = amount;
+        priceOrigin = goods.priceOrigin;
     }
 
     public void AddAmount(int amount)
@@ -46,7 +49,6 @@ public class Slot : MonoBehaviour
 
     public void ShowBackground(float breakPossibility)
     {
-
         slotBackground.ChangeSprite(breakPossibility);
     }
 }

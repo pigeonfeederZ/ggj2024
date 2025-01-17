@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Goods : ScriptableObject
 {
     public string goodsName;
-    public int priceNow;
     public int priceOrigin;
     public Sprite icon;
     private float possibilityOfBreakdown = 0;

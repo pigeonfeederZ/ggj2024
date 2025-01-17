@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e02106e48bc84234acd9e16607cb5a1, type: 3}
   m_Name: Apple
   m_EditorClassIdentifier: 
-  goodsName: 
-  priceNow: 0
-  priceOrigin: 0
-  icon: {fileID: 0}
+  goodsName: Apple
+  priceOrigin: 10
+  icon: {fileID: 21300000, guid: f897be39f5aa8484cb5f74bfb0f8cc4a, type: 3}
