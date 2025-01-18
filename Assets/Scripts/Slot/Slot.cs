@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour
     private Slot_Background slotBackground;
     private Slot_Image slotImage;
     public int priceNow;
+    public long priceTotal;
     public int priceOrigin { get; private set; }
     public int demand;
     public int panic = 0;
@@ -43,7 +44,6 @@ public class Slot : MonoBehaviour
     {
         this.goods = goods;
         this.buyAmount = amount;
-        this.demand = Random.Range(50, 100);
         priceOrigin = goods.priceOrigin;
         priceText.text = priceOrigin.ToString();
         oldPrice = priceOrigin;
@@ -52,6 +52,16 @@ public class Slot : MonoBehaviour
         amountOfPriceChange = 0;
         isBreak = false;
         animator.SetBool("isBreak", false);
+        SetClick(true);
+
+        //设置不同阶段商品的demand
+        if (goods.round == 0)
+            this.demand = Random.Range(50, 100);
+        else if (goods.round == 1)
+            this.demand = Random.Range(300, 500);
+        else if (goods.round == 2)
+            this.demand = Random.Range(1000, 2000);
+
         ShowGoods();
         SetPriceNow(priceOrigin);
     }
@@ -111,8 +121,8 @@ public class Slot : MonoBehaviour
             priceText.text = "0";
 
 
-
-        ownedValueText.text = (buyAmount * priceNow).ToString();
+        priceTotal = (long)buyAmount * (long)priceNow;
+        ownedValueText.text = priceTotal.ToString();
     }
 
     private void FixedUpdate()

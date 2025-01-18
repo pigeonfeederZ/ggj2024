@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
     //过回合后增加商品价格
     public void NextTurn()
     {
-        int moneyOfSlots = 0;
+        long moneyOfSlots = 0;
         foreach (Slot slot in slotsList)
         {
             if (slot.isBreak)
@@ -74,11 +74,8 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Bubble Break");
 
                 //如果是上一round的商品破裂，则补充新的
-                if (slot.goods.round < round)
-                {
-                    slot.AddGoods(goodsList[0], 0);
-                    goodsList.RemoveAt(0);
-                }
+                //配合动画放在新函数里：SpawnNewGoods
+
             }
             //否则价格增加
             else
@@ -87,7 +84,7 @@ public class GameManager : MonoBehaviour
                 CalculatePanic(slot);
             }
 
-            moneyOfSlots += slot.priceNow * slot.buyAmount;
+            moneyOfSlots += slot.priceTotal;
 
             ComfirmManager.instance.InitiateConfirm();
             slot.panicModifier = 0;
@@ -124,7 +121,7 @@ public class GameManager : MonoBehaviour
 
     public int CalculatePriceAdd(Slot _slot)
     {
-        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.5) * _slot.priceNow) * _slot.priceModifier);
+        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.3) * _slot.priceNow) * _slot.priceModifier);
     }
 
     public void CalculatePanic(Slot _slot)
@@ -176,9 +173,9 @@ public class GameManager : MonoBehaviour
     {
         // 更新目标金额
         if (round == 1)
-            aimMoney = 3000;
-        else if (round == 2)
             aimMoney = 10000;
+        else if (round == 2)
+            aimMoney = 100000;
         Debug.Log("Aim Update");
         aimMoneyText.text = aimMoney.ToString();
     }
@@ -194,4 +191,6 @@ public class GameManager : MonoBehaviour
             EnterNextRound();
         }
     }
+
+
 }
