@@ -29,6 +29,7 @@ public class Slot : MonoBehaviour
     public bool isBreak = false;
 
     public int panicModifier = 0;
+    public float priceModifier = 1;
 
     public Animator animator;
 
