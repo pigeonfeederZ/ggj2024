@@ -25,8 +25,24 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
     {
         if (CardManager.instance.cardChosen != -1)
         {
-            CardManager.instance.cardSlotChosen = slot;
-            return;
+            if (CardManager.instance.cardSlotChosen != slot && CardManager.instance.cardSlotChosen != null)
+            {
+                CardManager.instance.cardSlotChosen.isSelected(false);
+                CardManager.instance.cardSlotChosen = slot;
+                slot.isSelected(true);
+                return;
+            }
+            else if (CardManager.instance.cardSlotChosen == null)
+            {
+                CardManager.instance.cardSlotChosen = slot;
+                slot.isSelected(true);
+                return;
+            }
+            else
+            {
+                CardManager.instance.ClearSlotChosen();
+                return;
+            }
         }
 
         if (slot.goods == null || !canClick)

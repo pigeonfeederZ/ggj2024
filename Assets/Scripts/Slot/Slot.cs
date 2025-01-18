@@ -16,6 +16,8 @@ public class Slot : MonoBehaviour
     public int demand;
     public int panic = 0;
 
+    public GameObject priceBackground;
+
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI ownedValueText;
 
@@ -126,5 +128,14 @@ public class Slot : MonoBehaviour
     public void SetClick(bool _canClick)
     {
         slotImage.canClick = _canClick;
+    }
+
+    public void isSelected(bool _isSelected)
+    {
+        //改变颜色
+        if (_isSelected)
+            priceBackground.GetComponent<Image>().color = new Color(0.1784865f, 0.9716981f, 0.06875221f, 1f);
+        else
+            priceBackground.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1f);
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb26fbec2c8f04567b2b1029bca1a911, type: 3}
   m_Name: DecreasPanic
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
+  cardName: Less Break
+  description: Decrease break possibility of chosen good by 10 percent.
   icon: {fileID: 21300000, guid: 100ac6ffdd2bc4241b9d3192e1fbce60, type: 3}
   cardID: 1

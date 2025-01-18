@@ -71,6 +71,6 @@ public class UIManager : MonoBehaviour
         ShopButton.gameObject.SetActive(true);
         UseCardButton.gameObject.SetActive(false);
         CardManager.instance.cardChosen = -1;
-        CardManager.instance.cardSlotChosen = null;
+        CardManager.instance.ClearSlotChosen();
     }
 }

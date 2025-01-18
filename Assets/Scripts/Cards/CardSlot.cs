@@ -1,11 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class CardSlot : MonoBehaviour, IPointerClickHandler
 {
     public Cards card;
+    public Image imageDisplay;
+    public TextMeshProUGUI cardDiscription;
+
+    public void Awake()
+    {
+        cardDiscription = GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    public void SetCard(Cards _card)
+    {
+        card = _card;
+        ShowCard();
+    }
+
+    public void ShowCard()
+    {
+        imageDisplay.sprite = card.icon;
+        cardDiscription.text = card.description;
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
