@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Mongo
   m_EditorClassIdentifier: 
   goodsName: 
-  priceOrigin: 0
+  priceOrigin: 12
   icon: {fileID: 0}

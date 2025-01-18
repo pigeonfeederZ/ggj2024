@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Pinapple
   m_EditorClassIdentifier: 
   goodsName: 
-  priceOrigin: 0
+  priceOrigin: 14
   icon: {fileID: 0}
