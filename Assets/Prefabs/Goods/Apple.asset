@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodsName: Apple
   priceOrigin: 10
-  icon: {fileID: 21300000, guid: f897be39f5aa8484cb5f74bfb0f8cc4a, type: 3}
+  icon: {fileID: 21300000, guid: 3f51d8ffcb7df0a49bcd1fcd5d58d883, type: 3}
