@@ -6,6 +6,7 @@ using UnityEngine;
 using System;
 using Random = System.Random;
 using URandom = UnityEngine.Random;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<Goods> goodsList = new List<Goods>();
 
     public int aimMoney = 1000;
+    public TextMeshProUGUI aimMoneyText;
 
     void Awake()
     {
@@ -37,7 +39,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        aimMoneyText.text = aimMoney.ToString();
         InitiateGoods(goodsList);
+
     }
 
     //过回合后增加商品价格
@@ -71,7 +75,7 @@ public class GameManager : MonoBehaviour
 
         if (AllSlotBreak())
         {
-            UIManager.instance.SelectSettleDownUI();
+            CheckGameEnd();
         }
     }
 
@@ -127,7 +131,7 @@ public class GameManager : MonoBehaviour
 
     public void EnterNextRound()
     {
-        CheckGameEnd();
+
         AimUpdate();
         InitiateGoods(goodsList);
         UIManager.instance.SelectInTurnUI();
@@ -137,6 +141,7 @@ public class GameManager : MonoBehaviour
     {
         // 更新目标金额
         Debug.Log("Aim Update");
+        aimMoneyText.text = aimMoney.ToString();
     }
 
     public void CheckGameEnd()
@@ -147,7 +152,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            EnterNextRound();
+            UIManager.instance.SelectSettleDownUI();
         }
     }
 }
