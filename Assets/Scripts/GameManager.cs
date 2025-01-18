@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public List<Slot> slotsList = new List<Slot>();
     public List<Goods> goodsList = new List<Goods>();
 
+    public int aimMoney = 1000;
+
     void Awake()
     {
         if (instance != null)
@@ -125,7 +127,27 @@ public class GameManager : MonoBehaviour
 
     public void EnterNextRound()
     {
+        CheckGameEnd();
+        AimUpdate();
         InitiateGoods(goodsList);
         UIManager.instance.SelectInTurnUI();
+    }
+
+    public void AimUpdate()
+    {
+        // 更新目标金额
+        Debug.Log("Aim Update");
+    }
+
+    public void CheckGameEnd()
+    {
+        if (Player.instance.money < aimMoney)
+        {
+            UIManager.instance.SelectGameOverUI();
+        }
+        else
+        {
+            EnterNextRound();
+        }
     }
 }

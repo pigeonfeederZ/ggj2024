@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public int money; // 玩家拥有的金钱
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
 
+
     [SerializeField] private TextMeshProUGUI moneyText;
 
     void Awake()
