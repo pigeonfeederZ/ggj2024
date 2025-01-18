@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
     public void CalculatePanic(Slot _slot)
     {
-        _slot.panic = (int)GetGaussDistributeRandom(100 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 10);
+        _slot.panic = (int)GetGaussDistributeRandom(80 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 5);
 
         Debug.Log(_slot.name + " " + _slot.panic);
         _slot.animator.SetInteger("PanicTrigger", _slot.panic);
