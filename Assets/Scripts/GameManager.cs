@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public int aimMoney = 1000;
     public TextMeshProUGUI aimMoneyText;
 
+    public int round = 0;
+
     void Awake()
     {
         if (instance != null)
@@ -29,11 +31,9 @@ public class GameManager : MonoBehaviour
     // 为每个Slot添加的物品
     public void InitiateGoods(List<Goods> goodsList)
     {
-        foreach (Slot slot in slotsList)
+        for (int i = 0; i < 6; i++)
         {
-            int randomNumber = URandom.Range(0, goodsList.Count - 1);
-            slot.AddGoods(goodsList[randomNumber], 0);
-            goodsList.RemoveAt(randomNumber);
+            slotsList[i].AddGoods(goodsList[i], 0);
         }
     }
 
@@ -136,10 +136,11 @@ public class GameManager : MonoBehaviour
 
     public void EnterNextRound()
     {
-
+        if (round == 3)
+            return;
+        round++;
         AimUpdate();
-        InitiateGoods(goodsList);
-        UIManager.instance.SelectInTurnUI();
+        RoundManager.instance.ChangeToRound(round);
     }
 
     public void AimUpdate()
