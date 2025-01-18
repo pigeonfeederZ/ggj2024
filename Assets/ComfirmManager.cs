@@ -30,7 +30,14 @@ public class ComfirmManager : MonoBehaviour
             amountNow = SliderManager.instance.GetNumber();
             Player.instance.RemoveMoney(slotChosen.priceNow * (amountNow - amountOwned));
             slotChosen.buyAmount = amountNow;
+            slotChosen.ShowPrice();
             amountOwned = amountNow;
         }
+    }
+
+    public void InitiateConfirm()
+    {
+        amountOwned = -1;
+        slotChosen = null;
     }
 }

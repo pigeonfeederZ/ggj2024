@@ -8,6 +8,7 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
 {
     private Image image;
     private Slot slot;
+    public bool canClick = true;
 
     private void Awake()
     {
@@ -22,7 +23,8 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (slot.goods == null)
+
+        if (slot.goods == null || !canClick)
         {
             return;
         }
@@ -33,6 +35,5 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
             ComfirmManager.instance.slotChosen = slot;
         }
 
-        Debug.Log("点击了" + slot.goods.name);
     }
 }

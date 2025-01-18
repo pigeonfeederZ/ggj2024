@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,12 @@ public class SliderManager : MonoBehaviour
     public static SliderManager instance { get; private set; }
 
     private Slider slider;
+
+    [SerializeField] private TextMeshProUGUI maxNumberText;
+    [SerializeField] private TextMeshProUGUI leastNumberText;
+    [SerializeField] private TextMeshProUGUI currentNumberText;
+    [SerializeField] GameObject numberText;
+
 
     private void Awake()
     {
@@ -33,5 +40,22 @@ public class SliderManager : MonoBehaviour
     {
         slider.maxValue = maxNumber;
         slider.value = currentNumber;
+    }
+
+    void Update()
+    {
+        if (ComfirmManager.instance.slotChosen == null)
+        {
+            slider.interactable = false;
+            numberText.SetActive(false);
+        }
+        else
+        {
+            slider.interactable = true;
+            numberText.SetActive(true);
+            currentNumberText.text = ((int)slider.value).ToString();
+            leastNumberText.text = ((int)slider.minValue).ToString();
+            maxNumberText.text = ((int)slider.maxValue).ToString();
+        }
     }
 }
