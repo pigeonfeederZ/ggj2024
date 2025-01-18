@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 878114438672792296}
   - component: {fileID: 5111510323923810065}
   - component: {fileID: 8407262245059926149}
+  - component: {fileID: 2088209060676112759}
   m_Layer: 0
   m_Name: Slot_Backgound
   m_TagString: Untagged
@@ -302,6 +303,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &2088209060676112759
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785044941982395866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 16816ff65543edd42a507c49cf8786d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7005032879646173589
 GameObject:
   m_ObjectHideFlags: 0
