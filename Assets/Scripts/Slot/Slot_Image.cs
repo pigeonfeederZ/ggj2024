@@ -23,6 +23,11 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (CardManager.instance.cardChosen != -1)
+        {
+            CardManager.instance.cardSlotChosen = slot;
+            return;
+        }
 
         if (slot.goods == null || !canClick)
         {

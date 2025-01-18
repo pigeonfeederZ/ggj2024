@@ -25,6 +25,8 @@ public class Slot : MonoBehaviour
 
     public bool isBreak = false;
 
+    public int panicModifier = 0;
+
     public Animator animator;
 
     private void Awake()
