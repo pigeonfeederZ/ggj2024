@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -29,7 +30,7 @@ public class SliderManager : MonoBehaviour
     //得到Slider的值
     public int GetNumber()
     {
-        return (int)slider.value;
+        return Mathf.RoundToInt(slider.value);
     }
 
     public void ChangeSlider(int currentNumber, int maxNumber)
@@ -48,7 +49,7 @@ public class SliderManager : MonoBehaviour
         else
         {
             slider.interactable = true;
-            currentNumberText.text = ((int)slider.value).ToString();
+            currentNumberText.text = Mathf.RoundToInt(slider.value).ToString();
             leastNumberText.text = ((int)slider.minValue).ToString();
             maxNumberText.text = ((int)slider.maxValue).ToString();
         }

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class Slot : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class Slot : MonoBehaviour
     public TextMeshProUGUI priceText;
     public TextMeshProUGUI ownedValueText;
 
+    public int amountOfPriceChange;
+    private int oldPrice;
+    private int addEachTurn;
+
     public bool isBreak = false;
 
     private void Awake()
@@ -30,12 +36,13 @@ public class Slot : MonoBehaviour
         this.goods = goods;
         this.buyAmount = amount;
         this.demand = Random.Range(50, 100);
-        Debug.Log("Demand: " + demand);
         priceOrigin = goods.priceOrigin;
+        priceText.text = priceOrigin.ToString();
+        oldPrice = priceOrigin;
         panic = 0;
+        amountOfPriceChange = 0;
         isBreak = false;
         ShowGoods();
-        ShowPrice();
         SetPriceNow(priceOrigin);
     }
 
@@ -79,8 +86,36 @@ public class Slot : MonoBehaviour
     //显示价格
     public void ShowPrice()
     {
-        priceText.text = priceNow.ToString();
+        oldPrice = int.Parse(priceText.text);
+
+        if (isBreak == false)
+        {
+            amountOfPriceChange = priceNow - oldPrice;
+            if (amountOfPriceChange < 50)
+                addEachTurn = 1;
+            else
+                addEachTurn = amountOfPriceChange / 50;
+        }
+
+        else
+            priceText.text = "0";
+
+
+
         ownedValueText.text = (buyAmount * priceNow).ToString();
+    }
+
+    private void FixedUpdate()
+    {
+        if (amountOfPriceChange > 0)
+        {
+            oldPrice += addEachTurn;
+            priceText.text = oldPrice.ToString();
+            amountOfPriceChange -= addEachTurn;
+        }
+        else
+            priceText.text = priceNow.ToString();
+
     }
 
     public void SetClick(bool _canClick)

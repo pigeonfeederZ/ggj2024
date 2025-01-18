@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 slot.SetPriceNow(slot.priceNow + CalculatePriceAdd(slot));
+                CalculatePanic(slot);
             }
 
             ComfirmManager.instance.InitiateConfirm();
@@ -82,30 +83,32 @@ public class GameManager : MonoBehaviour
     //判断Bubble是否破裂
     public void IsBubbleBreak(Slot _slot)
     {
-        CalculatePanic(_slot);
+
         int breakProb = URandom.Range(0, 101);
         if (breakProb > _slot.panic)
+        {
             _slot.isBreak = false;
+        }
         else
         {
             _slot.isBreak = true;
+            _slot.amountOfPriceChange = 0;
         }
     }
 
     public int CalculatePriceAdd(Slot _slot)
     {
-        int priceEq = _slot.demand;
-        float max_price_growth = (float)0.2; // 最大价格增速
-        float min_price_growth = (float)0.05; // 最小价格增速
-        return (int)(_slot.priceNow * Math.Max((-max_price_growth / Math.Pow(priceEq, 2) * Math.Pow(_slot.priceNow, 2) + max_price_growth), min_price_growth)) + 1;
+        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.5) * _slot.priceNow));
     }
 
     public void CalculatePanic(Slot _slot)
     {
-        _slot.panic += (int)GetGaussDistributeRandom(3 * Math.Pow(Math.E, _slot.priceNow - _slot.demand), 0.5);
+        _slot.panic = (int)GetGaussDistributeRandom(100 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 10);
+
+        Debug.Log(_slot.name + " " + _slot.panic);
     }
 
-    private double GetGaussDistributeRandom(double miu, double sigma2)   // 均值 方差
+    private float GetGaussDistributeRandom(double miu, double sigma2)   // 均值 方差
     {
         Random ran = new Random();
         double r1 = ran.NextDouble();
@@ -113,7 +116,7 @@ public class GameManager : MonoBehaviour
         double r = Math.Sqrt((-2) * Math.Log(r2)) * Math.Sin(2 * Math.PI * r1);
         double result = miu + sigma2 * r;
         Console.WriteLine(result);
-        return result;
+        return (float)result;
     }
 
     public bool AllSlotBreak()
