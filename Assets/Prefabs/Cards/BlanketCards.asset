@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb26fbec2c8f04567b2b1029bca1a911, type: 3}
   m_Name: BlanketCards
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
+  cardName: Blanket Cards
+  description: A card may have no efforts, or may have enoumous efforts.
   icon: {fileID: 0}
-  cardID: 0
+  cardID: 6

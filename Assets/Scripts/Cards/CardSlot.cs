@@ -30,14 +30,17 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (CardManager.instance.cardChosen != card.cardID)
+        if (CardManager.instance.cardChosenSlot != this)
         {
 
             //取消上一个选中的卡片
-            if (CardManager.instance.cardChosen != -1)
-                CardManager.instance.cardSlots[CardManager.instance.cardChosen].IsSelected(false);
+            if (CardManager.instance.cardChosenSlot != null)
+            {
+                CardManager.instance.cardChosenSlot.IsSelected(false);
+            }
 
             CardManager.instance.cardChosen = card.cardID;
+            CardManager.instance.cardChosenSlot = this;
 
             //选中特效
             IsSelected(true);
@@ -45,6 +48,7 @@ public class CardSlot : MonoBehaviour, IPointerClickHandler
         else
         {
             CardManager.instance.cardChosen = -1;
+            CardManager.instance.cardChosenSlot = null;
             //取消选中特效
             IsSelected(false);
         }
