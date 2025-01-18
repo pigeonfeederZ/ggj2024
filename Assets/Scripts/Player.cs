@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     // 单例
     public static Player instance { get; private set; }
     public int money; // 玩家拥有的金钱
+    public int allMoney; //玩家总资产
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
 
 

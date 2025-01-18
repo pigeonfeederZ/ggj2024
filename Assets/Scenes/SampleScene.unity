@@ -1809,7 +1809,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0e80ca70fedb84e5b9ce2c98c57fe9ca, type: 2}
   - {fileID: 11400000, guid: fd8615fed882848199246afa321f8d73, type: 2}
   - {fileID: 11400000, guid: 2461b9424e7984a9ab13e6408a4c6eeb, type: 2}
-  aimMoney: 10
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  - {fileID: 11400000, guid: ef739cfbdf972e44994615e6672ca6d3, type: 2}
+  aimMoney: 1000
   aimMoneyText: {fileID: 2102578997}
   round: 0
 --- !u!1 &684838581
@@ -2217,6 +2223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 100
+  allMoney: 0
   moneyText: {fileID: 1391168690}
 --- !u!4 &777862667
 Transform:

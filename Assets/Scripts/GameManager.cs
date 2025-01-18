@@ -33,7 +33,13 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 6; i++)
         {
-            slotsList[i].AddGoods(goodsList[i], 0);
+            Debug.Log(slotsList[i].isBreak);
+            Debug.Log(slotsList[i].goods);
+            if (slotsList[i].isBreak || slotsList[i].goods == null)
+            {
+                slotsList[i].AddGoods(goodsList[0], 0);
+                goodsList.RemoveAt(0);
+            }
         }
     }
 
@@ -47,6 +53,7 @@ public class GameManager : MonoBehaviour
     //过回合后增加商品价格
     public void NextTurn()
     {
+        int moneyOfSlots = 0;
         foreach (Slot slot in slotsList)
         {
             if (slot.isBreak)
@@ -64,6 +71,13 @@ public class GameManager : MonoBehaviour
                 slot.SetClick(false);
                 slot.SetPriceNow(0);
                 Debug.Log("Bubble Break");
+
+                //如果是上一round的商品破裂，则补充新的
+                if (slot.goods.round < round)
+                {
+                    slot.AddGoods(goodsList[0], 0);
+                    goodsList.RemoveAt(0);
+                }
             }
             //否则价格增加
             else
@@ -72,13 +86,15 @@ public class GameManager : MonoBehaviour
                 CalculatePanic(slot);
             }
 
+            moneyOfSlots += slot.priceNow * slot.buyAmount;
+
             ComfirmManager.instance.InitiateConfirm();
         }
+        // 计算总资产
+        Player.instance.allMoney = moneyOfSlots + Player.instance.money;
+        // Debug.Log(Player.instance.allMoney);
 
-        if (AllSlotBreak())
-        {
-            CheckGameEnd();
-        }
+        CheckGameEnd();
     }
 
     //判断Bubble是否破裂
@@ -139,6 +155,9 @@ public class GameManager : MonoBehaviour
         if (round == 3)
             return;
         round++;
+
+        //播放一段过场动画
+
         AimUpdate();
         RoundManager.instance.ChangeToRound(round);
     }
@@ -146,19 +165,23 @@ public class GameManager : MonoBehaviour
     public void AimUpdate()
     {
         // 更新目标金额
+        if (round == 1)
+            aimMoney = 3000;
+        else if (round == 2)
+            aimMoney = 10000;
         Debug.Log("Aim Update");
         aimMoneyText.text = aimMoney.ToString();
     }
 
     public void CheckGameEnd()
     {
-        if (Player.instance.money < aimMoney)
+        if (AllSlotBreak())
         {
             UIManager.instance.SelectGameOverUI();
         }
-        else
+        else if (Player.instance.allMoney >= aimMoney)
         {
-            UIManager.instance.SelectSettleDownUI();
+            EnterNextRound();
         }
     }
 }

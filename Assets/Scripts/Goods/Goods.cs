@@ -8,4 +8,5 @@ public class Goods : ScriptableObject
     public string goodsName;
     public int priceOrigin;
     public Sprite icon;
+    public int round;
 }

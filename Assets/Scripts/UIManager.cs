@@ -26,13 +26,6 @@ public class UIManager : MonoBehaviour
         settleDownUI.gameObject.SetActive(false);
     }
 
-    public void SelectSettleDownUI()
-    {
-        gameOverUI.gameObject.SetActive(false);
-        inTrunUI.gameObject.SetActive(false);
-        settleDownUI.gameObject.SetActive(true);
-    }
-
     public void SelectGameOverUI()
     {
         gameOverUI.gameObject.SetActive(true);

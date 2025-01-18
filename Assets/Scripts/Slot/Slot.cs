@@ -43,8 +43,10 @@ public class Slot : MonoBehaviour
         priceText.text = priceOrigin.ToString();
         oldPrice = priceOrigin;
         panic = 0;
+        animator.SetInteger("PanicTrigger", panic);
         amountOfPriceChange = 0;
         isBreak = false;
+        animator.SetBool("isBreak", false);
         ShowGoods();
         SetPriceNow(priceOrigin);
     }

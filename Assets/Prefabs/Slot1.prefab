@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1996c49ca5ea44e78a63de506cbd5e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goods: {fileID: 11400000, guid: c7dee22fd1e9942adab700453a273e9d, type: 2}
+  goods: {fileID: 0}
   buyAmount: 0
   priceNow: 0
   demand: 0
