@@ -33,6 +33,7 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
             SliderManager.instance.ChangeSlider(slot.buyAmount, Player.instance.money / slot.priceNow + slot.buyAmount);
             ComfirmManager.instance.amountOwned = slot.buyAmount;
             ComfirmManager.instance.slotChosen = slot;
+            SliderManager.instance.buyingPanel.SetActive(true);
         }
 
     }

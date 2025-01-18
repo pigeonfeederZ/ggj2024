@@ -33,8 +33,10 @@ public class Slot : MonoBehaviour
         Debug.Log("Demand: " + demand);
         priceOrigin = goods.priceOrigin;
         panic = 0;
+        isBreak = false;
         ShowGoods();
         ShowPrice();
+        SetPriceNow(priceOrigin);
     }
 
     //增加购买数量
@@ -53,12 +55,6 @@ public class Slot : MonoBehaviour
     {
         this.priceNow = priceNow;
         ShowPrice();
-    }
-
-
-    private void Start()
-    {
-        SetPriceNow(priceOrigin);
     }
 
     //清空Slot

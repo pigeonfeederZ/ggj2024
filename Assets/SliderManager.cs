@@ -9,12 +9,12 @@ public class SliderManager : MonoBehaviour
     //单例
     public static SliderManager instance { get; private set; }
 
-    private Slider slider;
+    public Slider slider;
 
     [SerializeField] private TextMeshProUGUI maxNumberText;
     [SerializeField] private TextMeshProUGUI leastNumberText;
     [SerializeField] private TextMeshProUGUI currentNumberText;
-    [SerializeField] GameObject numberText;
+    public GameObject buyingPanel;
 
 
     private void Awake()
@@ -25,10 +25,6 @@ public class SliderManager : MonoBehaviour
             instance = this;
     }
 
-    private void Start()
-    {
-        slider = GetComponent<Slider>();
-    }
 
     //得到Slider的值
     public int GetNumber()
@@ -47,15 +43,19 @@ public class SliderManager : MonoBehaviour
         if (ComfirmManager.instance.slotChosen == null)
         {
             slider.interactable = false;
-            numberText.SetActive(false);
+            buyingPanel.SetActive(false);
         }
         else
         {
             slider.interactable = true;
-            numberText.SetActive(true);
             currentNumberText.text = ((int)slider.value).ToString();
             leastNumberText.text = ((int)slider.minValue).ToString();
             maxNumberText.text = ((int)slider.maxValue).ToString();
         }
+    }
+
+    public void CloseBuyingPanel()
+    {
+        buyingPanel.SetActive(false);
     }
 }

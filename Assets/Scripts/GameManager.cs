@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (Slot slot in slotsList)
         {
-            int randomNumber = URandom.Range(0, goodsList.Count);
+            int randomNumber = URandom.Range(0, goodsList.Count - 1);
             slot.AddGoods(goodsList[randomNumber], 0);
             goodsList.RemoveAt(randomNumber);
         }
@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviour
 
             ComfirmManager.instance.InitiateConfirm();
         }
+
+        if (AllSlotBreak())
+        {
+            UIManager.instance.SelectSettleDownUI();
+        }
     }
 
     //判断Bubble是否破裂
@@ -78,7 +83,6 @@ public class GameManager : MonoBehaviour
         else
         {
             _slot.isBreak = true;
-
         }
     }
 
@@ -104,5 +108,24 @@ public class GameManager : MonoBehaviour
         double result = miu + sigma2 * r;
         Console.WriteLine(result);
         return result;
+    }
+
+    public bool AllSlotBreak()
+    {
+        foreach (Slot slot in slotsList)
+        {
+            if (!slot.isBreak)
+            {
+                return false;
+            }
+        }
+        Debug.Log("All Slot Break");
+        return true;
+    }
+
+    public void EnterNextRound()
+    {
+        InitiateGoods(goodsList);
+        UIManager.instance.SelectInTurnUI();
     }
 }
