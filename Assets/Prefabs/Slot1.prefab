@@ -605,10 +605,12 @@ MonoBehaviour:
   priceNow: 0
   demand: 0
   panic: 0
+  priceBackground: {fileID: 1591502225084351069}
   priceText: {fileID: 573579510897304918}
   ownedValueText: {fileID: 7204137662950681907}
   amountOfPriceChange: 0
   isBreak: 0
+  panicModifier: 0
   animator: {fileID: 0}
 --- !u!222 &6765454892171567355
 CanvasRenderer:

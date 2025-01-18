@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     public GameObject inTrunUI;
     public GameObject settleDownUI;
     public GameObject gameOverUI;
+    public GameObject ShopPanel;
+
+    public GameObject ShopButton;
+    public GameObject UseCardButton;
 
     public void SelectInTurnUI()
     {
@@ -31,5 +35,35 @@ public class UIManager : MonoBehaviour
         gameOverUI.gameObject.SetActive(true);
         inTrunUI.gameObject.SetActive(false);
         settleDownUI.gameObject.SetActive(false);
+    }
+
+    public void SelectShopPanel()
+    {
+        ShopPanel.gameObject.SetActive(true);
+        Player.instance.RemoveMoney(CardManager.instance.cardCost);
+    }
+
+    public void CloseShopPanel()
+    {
+        ShopPanel.gameObject.SetActive(false);
+
+        if (CardManager.instance.cardChosen != -1)
+        {
+            SwitchToUseCardButton();
+        }
+    }
+
+    private void SwitchToUseCardButton()
+    {
+        ShopButton.gameObject.SetActive(false);
+        UseCardButton.gameObject.SetActive(true);
+    }
+
+    public void SwithToShopButton()
+    {
+        ShopButton.gameObject.SetActive(true);
+        UseCardButton.gameObject.SetActive(false);
+        CardManager.instance.cardChosen = -1;
+        CardManager.instance.ClearSlotChosen();
     }
 }

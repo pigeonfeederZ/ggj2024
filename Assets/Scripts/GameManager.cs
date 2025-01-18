@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public int round = 0;
 
+
     void Awake()
     {
         if (instance != null)
@@ -89,12 +90,19 @@ public class GameManager : MonoBehaviour
             moneyOfSlots += slot.priceNow * slot.buyAmount;
 
             ComfirmManager.instance.InitiateConfirm();
+            slot.panicModifier = 0;
         }
         // 计算总资产
         Player.instance.allMoney = moneyOfSlots + Player.instance.money;
         // Debug.Log(Player.instance.allMoney);
 
         CheckGameEnd();
+        ComfirmManager.instance.InitiateConfirm();
+
+        UIManager.instance.SwithToShopButton();
+
+
+
     }
 
     //判断Bubble是否破裂
@@ -120,7 +128,8 @@ public class GameManager : MonoBehaviour
 
     public void CalculatePanic(Slot _slot)
     {
-        _slot.panic = (int)GetGaussDistributeRandom(80 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 5);
+
+        _slot.panic = (int)GetGaussDistributeRandom(80 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 5) - _slot.panicModifier;
 
         Debug.Log(_slot.name + " " + _slot.panic);
         _slot.animator.SetInteger("PanicTrigger", _slot.panic);
