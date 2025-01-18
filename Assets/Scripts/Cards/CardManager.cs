@@ -49,6 +49,28 @@ public class CardManager : MonoBehaviour
         _slot.panicModifier = 20;
     }
 
+    public void IncreaseAmount(Slot _slot)
+    {
+        _slot.buyAmount = (int)(_slot.buyAmount * 1.2f);
+    }
+
+    public void BlanketEffect(Slot _slot)
+    {
+        int randomNum = Random.Range(0, 100);
+        if (randomNum < 10)
+        {
+            _slot.panicModifier = 20;
+        }
+        else if (randomNum < 30)
+        {
+            _slot.priceModifier = 5f;
+        }
+        else if (randomNum < 50)
+        {
+            Player.instance.AddMoney((int)(_slot.priceNow * _slot.buyAmount * 0.2f));
+        }
+    }
+
     # endregion
 
     public void takeCardEffect()
@@ -71,6 +93,10 @@ public class CardManager : MonoBehaviour
             case 4:
                 decreasePrice(cardSlotChosen);
                 Debug.Log("Case 4");
+                break;
+            case 5:
+                IncreaseAmount(cardSlotChosen);
+                Debug.Log("Case 5");
                 break;
         }
 
