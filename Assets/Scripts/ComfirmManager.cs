@@ -28,7 +28,7 @@ public class ComfirmManager : MonoBehaviour
         else
         {
             amountNow = SliderManager.instance.GetNumber();
-            Player.instance.RemoveMoney(slotChosen.priceNow * (amountNow - amountOwned));
+            Player.instance.RemoveMoney((long)slotChosen.priceNow * (long)(amountNow - amountOwned));
             slotChosen.buyAmount = amountNow;
             slotChosen.ShowPrice();
             amountOwned = amountNow;

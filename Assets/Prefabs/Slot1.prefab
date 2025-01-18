@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 5111510323923810065}
   - component: {fileID: 8407262245059926149}
   - component: {fileID: 2088209060676112759}
+  - component: {fileID: 1106911443398216842}
   m_Layer: 0
   m_Name: Slot_Backgound
   m_TagString: Untagged
@@ -324,6 +325,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1106911443398216842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785044941982395866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ace9f13e55a434f9053c1801a05c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7005032879646173589
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +616,7 @@ MonoBehaviour:
   goods: {fileID: 0}
   buyAmount: 0
   priceNow: 0
+  priceTotal: 0
   demand: 0
   panic: 0
   priceBackground: {fileID: 1591502225084351069}

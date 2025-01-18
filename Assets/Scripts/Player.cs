@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 {
     // 单例
     public static Player instance { get; private set; }
-    public int money; // 玩家拥有的金钱
-    public int allMoney; //玩家总资产
+    public long money; // 玩家拥有的金钱
+    public long allMoney; //玩家总资产
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
 
 
@@ -27,13 +27,13 @@ public class Player : MonoBehaviour
         moneyText.text = money.ToString();
     }
 
-    public void AddMoney(int amount)
+    public void AddMoney(long amount)
     {
         money += amount;
         moneyText.text = money.ToString();
     }
 
-    public void RemoveMoney(int amount)
+    public void RemoveMoney(long amount)
     {
         money -= amount;
         moneyText.text = money.ToString();
