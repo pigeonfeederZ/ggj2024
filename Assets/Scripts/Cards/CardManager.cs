@@ -13,6 +13,7 @@ public class CardManager : MonoBehaviour
 
     //选择的卡片
     public int cardChosen = -1;
+    public CardSlot cardChosenSlot;//选择的卡片槽
     public Slot cardSlotChosen;
 
     //每张卡片的花费

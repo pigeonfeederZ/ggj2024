@@ -876,11 +876,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8068ee08ac7454b47a0d702f3c1ade69, type: 2}
   - {fileID: 11400000, guid: a9753f39a8d7c4e1f8656241b73a7e8d, type: 2}
   - {fileID: 11400000, guid: 101e7931d5cca4ab08e1647799c45c71, type: 2}
+  - {fileID: 11400000, guid: 9b33e4158d57246ca961eb4eb4de73d0, type: 2}
+  - {fileID: 11400000, guid: 4b74ea22687514fffb3d20a2e92f8629, type: 2}
   cardSlots:
   - {fileID: 914234454}
   - {fileID: 237449521}
   - {fileID: 467653647}
   cardChosen: -1
+  cardChosenSlot: {fileID: 0}
   cardSlotChosen: {fileID: 0}
   cardCost: 10
   cardCostText: {fileID: 1067321969}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb26fbec2c8f04567b2b1029bca1a911, type: 3}
   m_Name: IncreaseOwnedAmount
   m_EditorClassIdentifier: 
-  cardName: 
-  description: 
+  cardName: IncreaceAmountOfOwn
+  description: Select a good and increase the amount that you owned.
   icon: {fileID: 0}
-  cardID: 0
+  cardID: 5
