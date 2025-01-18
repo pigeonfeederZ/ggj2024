@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
             if (slot.isBreak)
             {
                 //若破裂则播放动画
+                slot.animator.SetBool("isBreak", true);
                 slot.SetClick(false);
                 slot.SetPriceNow(0);
                 Debug.Log("Bubble Break");
@@ -106,6 +107,7 @@ public class GameManager : MonoBehaviour
         _slot.panic = (int)GetGaussDistributeRandom(100 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 10);
 
         Debug.Log(_slot.name + " " + _slot.panic);
+        _slot.animator.SetInteger("PanicTrigger", _slot.panic);
     }
 
     private float GetGaussDistributeRandom(double miu, double sigma2)   // 均值 方差

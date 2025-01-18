@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goodsName: 
   priceOrigin: 16
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 149a472d60bf8bc42a7a0244ae2dacba, type: 3}

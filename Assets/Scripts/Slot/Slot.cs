@@ -25,10 +25,13 @@ public class Slot : MonoBehaviour
 
     public bool isBreak = false;
 
+    public Animator animator;
+
     private void Awake()
     {
         slotBackground = transform.GetComponentInChildren<Slot_Background>();
         slotImage = transform.GetComponentInChildren<Slot_Image>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void AddGoods(Goods goods, int amount)

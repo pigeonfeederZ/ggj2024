@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e02106e48bc84234acd9e16607cb5a1, type: 3}
-  m_Name: Peach
+  m_Name: Axe
   m_EditorClassIdentifier: 
-  goodsName: Peach
+  goodsName: Axe
   priceOrigin: 15
-  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: eb875d6103490154ca7008e680002459, type: 3}

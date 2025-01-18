@@ -1603,6 +1603,10 @@ MonoBehaviour:
   goodsList:
   - {fileID: 11400000, guid: c7dee22fd1e9942adab700453a273e9d, type: 2}
   - {fileID: 11400000, guid: b67349b19dd684b1ca57bbcba359a566, type: 2}
+  - {fileID: 11400000, guid: 0be2845dcc8964b3bbb6af25a433a342, type: 2}
+  - {fileID: 11400000, guid: 0e80ca70fedb84e5b9ce2c98c57fe9ca, type: 2}
+  - {fileID: 11400000, guid: fd8615fed882848199246afa321f8d73, type: 2}
+  - {fileID: 11400000, guid: 2461b9424e7984a9ab13e6408a4c6eeb, type: 2}
   aimMoney: 1000
   aimMoneyText: {fileID: 2102578997}
 --- !u!1 &702758703
