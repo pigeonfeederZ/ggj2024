@@ -72,6 +72,14 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void IncreasePriceAll()
+    {
+        foreach (Slot slot in GameManager.instance.slotsList)
+        {
+            slot.SetPriceNow((int)(slot.priceNow * 1.05f));
+        }
+    }
+
     # endregion
 
     public void takeCardEffect()
@@ -99,11 +107,20 @@ public class CardManager : MonoBehaviour
                 IncreaseAmount(cardSlotChosen);
                 Debug.Log("Case 5");
                 break;
+            case 6:
+                BlanketEffect(cardSlotChosen);
+                Debug.Log("Case 6");
+                break;
+            case 7:
+                IncreasePriceAll();
+                Debug.Log("Case 7");
+                break;
         }
 
 
-        //cardChosen = -1;
+        cardChosen = -1;
         ClearSlotChosen();
+        cardChosenSlot = null;
 
         foreach (CardSlot cardSlot in cardSlots)
         {
@@ -134,5 +151,27 @@ public class CardManager : MonoBehaviour
             cardSlotChosen = null;
         }
 
+    }
+
+    public void SelectCard()
+    {
+        if (cardChosenSlot == null)
+        {
+            return;
+        }
+        else
+        {
+            if (cardChosenSlot.card.needToSelectSlot)
+            {
+                UIManager.instance.CloseShopPanel();
+                UIManager.instance.SwitchToUseCardButton();
+
+            }
+            else
+            {
+                takeCardEffect();
+                UIManager.instance.CloseShopPanel();
+            }
+        }
     }
 }

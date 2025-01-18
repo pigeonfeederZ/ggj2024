@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Select a good you have now and gain 20% of how much it deserves.
   icon: {fileID: 0}
   cardID: 3
+  needToSelectSlot: 1

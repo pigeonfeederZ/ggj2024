@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Decrease break possibility of chosen good by 10 percent.
   icon: {fileID: 21300000, guid: 100ac6ffdd2bc4241b9d3192e1fbce60, type: 3}
   cardID: 1
+  needToSelectSlot: 1

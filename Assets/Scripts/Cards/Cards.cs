@@ -9,4 +9,5 @@ public class Cards : ScriptableObject
     public string description;
     public Sprite icon;
     public int cardID;
+    public bool needToSelectSlot;
 }

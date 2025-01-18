@@ -47,14 +47,9 @@ public class UIManager : MonoBehaviour
     public void CloseShopPanel()
     {
         ShopPanel.gameObject.SetActive(false);
-
-        if (CardManager.instance.cardChosen != -1)
-        {
-            SwitchToUseCardButton();
-        }
     }
 
-    private void SwitchToUseCardButton()
+    public void SwitchToUseCardButton()
     {
         ShopButton.gameObject.SetActive(false);
         NextTurnButton.gameObject.SetActive(false);

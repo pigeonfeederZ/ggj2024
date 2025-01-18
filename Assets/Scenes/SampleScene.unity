@@ -878,6 +878,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 101e7931d5cca4ab08e1647799c45c71, type: 2}
   - {fileID: 11400000, guid: 9b33e4158d57246ca961eb4eb4de73d0, type: 2}
   - {fileID: 11400000, guid: 4b74ea22687514fffb3d20a2e92f8629, type: 2}
+  - {fileID: 11400000, guid: 250fb737d1d9d46429967881cdefcc96, type: 2}
   cardSlots:
   - {fileID: 914234454}
   - {fileID: 237449521}
@@ -3155,9 +3156,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1099047220}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: CloseShopPanel
+      - m_Target: {fileID: 216788799}
+        m_TargetAssemblyTypeName: CardManager, Assembly-CSharp
+        m_MethodName: SelectCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

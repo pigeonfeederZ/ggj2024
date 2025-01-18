@@ -17,3 +17,4 @@ MonoBehaviour:
     in the next turn.
   icon: {fileID: 0}
   cardID: 2
+  needToSelectSlot: 1

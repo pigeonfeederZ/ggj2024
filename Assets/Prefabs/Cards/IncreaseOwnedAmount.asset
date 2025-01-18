@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Select a good and increase the amount that you owned.
   icon: {fileID: 0}
   cardID: 5
+  needToSelectSlot: 1
