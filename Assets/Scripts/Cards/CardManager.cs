@@ -27,21 +27,61 @@ public class CardManager : MonoBehaviour
             instance = this;
     }
 
-
+    #region 卡片效果
     public void decreaseCardEffect(Slot _slot)
     {
         _slot.panicModifier = 10;
     }
 
+    public void increasePrice(Slot _slot)
+    {
+        _slot.priceModifier = 5f;
+    }
+
+    public void gainMoneyNow(Slot _slot)
+    {
+        Player.instance.AddMoney((int)(_slot.priceNow * _slot.buyAmount * 0.2f));
+    }
+
+    public void decreasePrice(Slot _slot)
+    {
+        _slot.SetPriceNow((int)(_slot.priceNow * 0.8f));
+        _slot.panicModifier = 20;
+    }
+
+    # endregion
+
     public void takeCardEffect()
     {
-        if (cardChosen == 1)
+        Debug.Log("Take Card Effect");
+        switch (cardChosen)
         {
-            decreaseCardEffect(cardSlotChosen);
+            case 1:
+                Debug.Log("Case 1");
+                decreaseCardEffect(cardSlotChosen);
+                break;
+            case 2:
+                Debug.Log("Case 2");
+                increasePrice(cardSlotChosen);
+                break;
+            case 3:
+                Debug.Log("Case 3");
+                gainMoneyNow(cardSlotChosen);
+                break;
+            case 4:
+                decreasePrice(cardSlotChosen);
+                Debug.Log("Case 4");
+                break;
         }
 
-        cardChosen = -1;
+
+        //cardChosen = -1;
         ClearSlotChosen();
+
+        foreach (CardSlot cardSlot in cardSlots)
+        {
+            cardSlot.IsSelected(false);
+        }
     }
 
     public void distributeCard()

@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject ShopButton;
     public GameObject UseCardButton;
+    public GameObject NextTurnButton;
 
     public void SelectInTurnUI()
     {
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour
     private void SwitchToUseCardButton()
     {
         ShopButton.gameObject.SetActive(false);
+        NextTurnButton.gameObject.SetActive(false);
         UseCardButton.gameObject.SetActive(true);
     }
 
@@ -63,6 +65,7 @@ public class UIManager : MonoBehaviour
     {
         ShopButton.gameObject.SetActive(true);
         UseCardButton.gameObject.SetActive(false);
+        NextTurnButton.gameObject.SetActive(true);
         CardManager.instance.cardChosen = -1;
         CardManager.instance.ClearSlotChosen();
     }

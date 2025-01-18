@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
 
             ComfirmManager.instance.InitiateConfirm();
             slot.panicModifier = 0;
+            slot.priceModifier = 1;
         }
         // 计算总资产
         Player.instance.allMoney = moneyOfSlots + Player.instance.money;
@@ -123,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     public int CalculatePriceAdd(Slot _slot)
     {
-        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.5) * _slot.priceNow));
+        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.5) * _slot.priceNow) * _slot.priceModifier);
     }
 
     public void CalculatePanic(Slot _slot)
