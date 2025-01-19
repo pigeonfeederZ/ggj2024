@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1470
     height: 820
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 10029
+  controlID: 17
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 10030
+  controlID: 18
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 9991
+  controlID: 52
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -247,8 +247,8 @@ MonoBehaviour:
     y: 0
     width: 470
     height: 395
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -352,7 +352,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Textures
+    - Assets/Prefabs/Cards
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -360,16 +360,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Textures
+  - Assets/Prefabs/Cards
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "/Users/stardustor/Documents/Unity\u9879\u76EE/ggj/ggj2024"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 94650000
-    m_LastClickedID: 26004
-    m_ExpandedIDs: 000000005e6500008a6500008e65000000ca9a3bffffff7f
+    m_SelectedIDs: 08e10000
+    m_LastClickedID: 57608
+    m_ExpandedIDs: 0000000044650000586500006065000046cb000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -397,7 +397,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e65000000ca9a3bffffff7f
+    m_ExpandedIDs: 0000000044650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -449,7 +449,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 644}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 121
@@ -822,9 +822,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 822.8231, y: 626.55023, z: -9.6140175}
+    m_Target: {x: 921.4154, y: 525.0219, z: -5.025857}
     speed: 2
-    m_Value: {x: 822.8231, y: 626.55023, z: -9.6140175}
+    m_Value: {x: 921.4154, y: 525.0219, z: -5.025857}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -874,9 +874,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 688.66235
+    m_Target: 573.29425
     speed: 2
-    m_Value: 688.66235
+    m_Value: 573.29425
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1038,7 +1038,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1105,7 +1105,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 104666
+  m_LastSelectedObjectID: 53596
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1143,20 +1143,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 94650000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0af5feff0604ffff6c04ffffb62cffffe22dffff48f8ffff0ef9ffff10f9fffff4ffffffd062000040630000446300004e630000b6630000e0630000f26300004e4001005e410100708701005c8801008688010064990100
+      m_SelectedIDs: c8cf0000
+      m_LastClickedID: 53192
+      m_ExpandedIDs: 2eaaffff7cc5ffffe0c6fffffcfaffffd86100004e620000f0620000f8b10000deb2000024b300002ed0000096d0000016d10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: NextTurn
-        m_OriginalName: NextTurn
+        m_Name: MainMenuUI
+        m_OriginalName: MainMenuUI
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 104698
+        m_UserData: 45664
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
