@@ -5040,7 +5040,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c087b3a3901abd49886441a6c249c1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1576134710}
   audioList:
   - {fileID: 8300000, guid: dc55eb7098334ba44ac267fdce7ab8bc, type: 3}
   - {fileID: 8300000, guid: 6d04508439a139840adc730ab25d8d1f, type: 3}

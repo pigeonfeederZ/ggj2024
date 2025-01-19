@@ -49,7 +49,11 @@ public class GameManager : MonoBehaviour
 
         ComfirmManager.instance.InitiateConfirm();
 
+        AudioManager.instance.PlayMusic(0);
+
         RoundManager.instance.ChangeToRound(0);
+
+
 
     }
 
@@ -191,6 +195,9 @@ public class GameManager : MonoBehaviour
 
         //播放一段过场动画
         UIManager.instance.ShowSettleDownUI();
+
+        //播放音乐
+        AudioManager.instance.PlayMusic(round);
 
         Player.instance.AimUpdate();
         RoundManager.instance.ChangeToRound(round);

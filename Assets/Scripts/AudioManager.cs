@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.clip = audioList[index];
             audioSource.Play();
+            Debug.LogError("Playing");
         }
         else
         {
