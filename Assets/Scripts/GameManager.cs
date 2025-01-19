@@ -31,8 +31,10 @@ public class GameManager : MonoBehaviour
     {
         goodsList.Clear();
         goodsListCopy.ForEach(goods => goodsList.Add(goods));
-        InitiateWithoutGoodsList();
+
         round = 0;
+        InitiateWithoutGoodsList();
+
         Player.instance.aimMoney = 1000;
         Player.instance.money = 100;
         Player.instance.allMoney = 100;
