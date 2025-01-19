@@ -226,6 +226,7 @@ GameObject:
   - component: {fileID: 8407262245059926149}
   - component: {fileID: 2088209060676112759}
   - component: {fileID: 1106911443398216842}
+  - component: {fileID: 8926403946101703914}
   m_Layer: 0
   m_Name: Slot_Backgound
   m_TagString: Untagged
@@ -337,6 +338,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ace9f13e55a434f9053c1801a05c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8926403946101703914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6785044941982395866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6ace9f13e55a434f9053c1801a05c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7005032879646173589
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +362,7 @@ GameObject:
   - component: {fileID: 569135957359778315}
   - component: {fileID: 7204137662950681907}
   m_Layer: 5
-  m_Name: Owned_Value
+  m_Name: Owned_Amount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 107}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 67.09192, y: -53}
+  m_SizeDelta: {x: 65.8162, y: 56.1931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &569135957359778315
 CanvasRenderer:
@@ -402,7 +415,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000000
+  m_text: '9
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -621,10 +636,11 @@ MonoBehaviour:
   panic: 0
   priceBackground: {fileID: 1591502225084351069}
   priceText: {fileID: 573579510897304918}
-  ownedValueText: {fileID: 7204137662950681907}
+  ownedAmountText: {fileID: 7204137662950681907}
   amountOfPriceChange: 0
   isBreak: 0
   panicModifier: 0
+  priceModifier: 1
   animator: {fileID: 0}
 --- !u!222 &6765454892171567355
 CanvasRenderer:

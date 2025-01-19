@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,7 +7,9 @@ using UnityEngine.UI;
 public class Goods : ScriptableObject
 {
     public string goodsName;
-    public int priceOrigin;
-    public Sprite icon;
     public int round;
+    public Sprite icon;
+
+
+
 }
