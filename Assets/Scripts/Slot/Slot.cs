@@ -137,6 +137,8 @@ public class Slot : MonoBehaviour
         else
             priceText.text = "$" + priceNow.ToString();
 
+        int textLen = priceText.text.Length;
+        priceText.fontSize = Mathf.Min((int)(120 / textLen * 2), 45);
     }
 
     public void SetClick(bool _canClick)
