@@ -14,8 +14,7 @@ public class Slot : MonoBehaviour
     private Slot_Image slotImage;
     public int priceNow;
     public long priceTotal;
-    public int priceOrigin { get; private set; }
-    public int demand;
+    public int priceOrigin;
     public int panic = 0;
 
     public GameObject priceBackground;
@@ -45,23 +44,15 @@ public class Slot : MonoBehaviour
     {
         this.goods = goods;
         this.buyAmount = amount;
-        priceOrigin = (int)(UnityEngine.Random.Range(10, 50) * Math.Pow(10, goods.round));
+        priceOrigin = (int)UnityEngine.Random.Range((int)(10 * Math.Pow(10, goods.round)), (int)(50 * Math.Pow(10, goods.round)));
         priceText.text = priceOrigin.ToString();
         oldPrice = priceOrigin;
-        panic = 0;
+        panic = -10;
         animator.SetInteger("PanicTrigger", panic);
         amountOfPriceChange = 0;
         isBreak = false;
         animator.SetBool("isBreak", false);
         SetClick(true);
-
-        //设置不同阶段商品的demand
-        if (goods.round == 0)
-            this.demand = UnityEngine.Random.Range(50, 100);
-        else if (goods.round == 1)
-            this.demand = UnityEngine.Random.Range(300, 500);
-        else if (goods.round == 2)
-            this.demand = UnityEngine.Random.Range(1000, 2000);
 
         ShowGoods();
         SetPriceNow(priceOrigin);
@@ -108,7 +99,7 @@ public class Slot : MonoBehaviour
     //显示价格
     public void ShowPrice()
     {
-        oldPrice = int.Parse(priceText.text);
+        oldPrice = int.Parse(priceText.text.Substring(1, priceText.text.Length - 1));
 
         if (isBreak == false)
         {
@@ -120,7 +111,7 @@ public class Slot : MonoBehaviour
         }
 
         else
-            priceText.text = "0";
+            priceText.text = "$0";
 
 
         priceTotal = (long)buyAmount * (long)priceNow;
@@ -136,7 +127,7 @@ public class Slot : MonoBehaviour
             amountOfPriceChange -= addEachTurn;
         }
         else
-            priceText.text = priceNow.ToString();
+            priceText.text = "$" + priceNow.ToString();
 
     }
 

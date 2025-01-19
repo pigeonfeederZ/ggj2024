@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
+    public void InitiateWithoutGoodsList()
+    {
+        InitiateGoods(goodsList);
+    }
+
     // 为每个Slot添加的物品
     public void InitiateGoods(List<Goods> goodsList)
     {
@@ -43,7 +48,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        InitiateGoods(goodsList);
 
     }
 
@@ -67,6 +71,8 @@ public class GameManager : MonoBehaviour
                 slot.animator.SetBool("isBreak", true);
                 slot.SetClick(false);
                 slot.SetPriceNow(0);
+                slot.buyAmount = 0;
+                slot.ownedAmountText.text = "";
                 Debug.Log("Bubble Break");
 
                 //如果是上一round的商品破裂，则补充新的
@@ -104,6 +110,7 @@ public class GameManager : MonoBehaviour
     {
 
         int breakProb = URandom.Range(0, 101);
+        Debug.Log(name + breakProb);
         if (breakProb > _slot.panic)
         {
             _slot.isBreak = false;
@@ -117,13 +124,13 @@ public class GameManager : MonoBehaviour
 
     public int CalculatePriceAdd(Slot _slot)
     {
-        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.3) * _slot.priceOrigin) * _slot.priceModifier);
+        return Math.Abs(Mathf.RoundToInt(GetGaussDistributeRandom(0.2 + Math.Log10((_slot.buyAmount + 1) * _slot.priceOrigin / 10 / Math.Pow(10, _slot.goods.round)), 0.3) * _slot.priceOrigin * _slot.priceModifier));
     }
 
     public void CalculatePanic(Slot _slot)
     {
 
-        _slot.panic = (int)GetGaussDistributeRandom(100 / 3.14 * Math.Atan(_slot.priceNow / _slot.priceOrigin), 5) - _slot.panicModifier;
+        _slot.panic = (int)GetGaussDistributeRandom((_slot.priceNow - _slot.priceOrigin) * 0.5 / Math.Pow(10, _slot.goods.round), 5) - _slot.panicModifier;
 
         Debug.Log(_slot.name + " " + _slot.panic);
         _slot.animator.SetInteger("PanicTrigger", _slot.panic);
@@ -177,6 +184,23 @@ public class GameManager : MonoBehaviour
         {
             EnterNextRound();
         }
+
+        foreach (Slot slot in slotsList)
+        {
+            if (!slot.isBreak)
+            {
+                if (slot.buyAmount != 0)
+                {
+                    return;
+                }
+                else if (Player.instance.money >= slot.priceNow)
+                {
+                    return;
+                }
+            }
+        }
+
+        UIManager.instance.SelectGameOverUI();
     }
 
 

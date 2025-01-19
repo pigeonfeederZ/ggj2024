@@ -139,7 +139,7 @@ public class CardManager : MonoBehaviour
     public void AddCardCost()
     {
         cardCost *= 2;
-        cardCostText.text = "¥" + cardCost.ToString();
+        cardCostText.text = "$" + cardCost.ToString();
     }
 
     public void ClearSlotChosen()
@@ -173,5 +173,16 @@ public class CardManager : MonoBehaviour
                 UIManager.instance.CloseShopPanel();
             }
         }
+    }
+
+    public void ClickShopButton()
+    {
+        if (Player.instance.money < cardCost)
+        {
+            return;
+        }
+        AddCardCost();
+        UIManager.instance.SelectShopPanel();
+        distributeCard();
     }
 }

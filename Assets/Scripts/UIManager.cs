@@ -19,16 +19,26 @@ public class UIManager : MonoBehaviour
     public GameObject settleDownUI;
     public GameObject gameOverUI;
     public GameObject ShopPanel;
+    public GameObject MainMenulUI;
 
     public GameObject ShopButton;
     public GameObject UseCardButton;
     public GameObject NextTurnButton;
+
+    public void SelectMainMenulUI()
+    {
+        gameOverUI.gameObject.SetActive(false);
+        inTrunUI.gameObject.SetActive(false);
+        settleDownUI.gameObject.SetActive(false);
+        MainMenulUI.gameObject.SetActive(true);
+    }
 
     public void SelectInTurnUI()
     {
         gameOverUI.gameObject.SetActive(false);
         inTrunUI.gameObject.SetActive(true);
         settleDownUI.gameObject.SetActive(false);
+        MainMenulUI.gameObject.SetActive(false);
     }
 
     public void SelectGameOverUI()
@@ -36,6 +46,7 @@ public class UIManager : MonoBehaviour
         gameOverUI.gameObject.SetActive(true);
         inTrunUI.gameObject.SetActive(false);
         settleDownUI.gameObject.SetActive(false);
+        MainMenulUI.gameObject.SetActive(false);
     }
 
     public void SelectShopPanel()
@@ -63,5 +74,14 @@ public class UIManager : MonoBehaviour
         NextTurnButton.gameObject.SetActive(true);
         CardManager.instance.cardChosen = -1;
         CardManager.instance.ClearSlotChosen();
+    }
+
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
