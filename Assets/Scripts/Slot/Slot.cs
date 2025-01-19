@@ -42,6 +42,10 @@ public class Slot : MonoBehaviour
 
     public void AddGoods(Goods goods, int amount)
     {
+        if (goods == null)
+        {
+            return;
+        }
         this.goods = goods;
         this.buyAmount = amount;
         priceOrigin = (int)UnityEngine.Random.Range((int)(10 * Math.Pow(10, goods.round)), (int)(50 * Math.Pow(10, goods.round)));

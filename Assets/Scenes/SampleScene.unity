@@ -642,6 +642,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b33e4158d57246ca961eb4eb4de73d0, type: 2}
   - {fileID: 11400000, guid: 4b74ea22687514fffb3d20a2e92f8629, type: 2}
   - {fileID: 11400000, guid: 250fb737d1d9d46429967881cdefcc96, type: 2}
+  - {fileID: 11400000, guid: a47f407bf7678446880d889e05f4d4c5, type: 2}
   cardSlots:
   - {fileID: 914234454}
   - {fileID: 237449521}

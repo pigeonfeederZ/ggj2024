@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb26fbec2c8f04567b2b1029bca1a911, type: 3}
-  m_Name: DecreasePrice
+  m_Name: DoubleMoney
   m_EditorClassIdentifier: 
-  cardName: Decreas Price
-  description: Decrease the price of selected good. Meanwhile, decrease its break
-    possibility in the next turn.
+  cardName: Dounble Money
+  description: If you have more than 2 kinds of goods, money in your hand double.
   icon: {fileID: 0}
-  cardID: 4
-  needToSelectSlot: 1
+  cardID: 8
+  needToSelectSlot: 0

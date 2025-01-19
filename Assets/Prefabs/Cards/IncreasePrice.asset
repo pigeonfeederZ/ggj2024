@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IncreasePrice
   m_EditorClassIdentifier: 
   cardName: Increase Price
-  description: If the bubble of the good don't break, its price will incease largely
+  description: If the bubble of the good don't break, its price will increase largely
     in the next turn.
   icon: {fileID: 0}
   cardID: 2

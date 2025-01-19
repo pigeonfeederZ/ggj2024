@@ -31,7 +31,7 @@ public class CardManager : MonoBehaviour
     #region 卡片效果
     public void decreaseCardEffect(Slot _slot)
     {
-        _slot.panicModifier = 10;
+        _slot.panicModifier = 20;
     }
 
     public void increasePrice(Slot _slot)
@@ -41,13 +41,13 @@ public class CardManager : MonoBehaviour
 
     public void gainMoneyNow(Slot _slot)
     {
-        Player.instance.AddMoney((int)(_slot.priceNow * _slot.buyAmount * 0.2f));
+        Player.instance.AddMoney((int)(_slot.priceNow * _slot.buyAmount * 0.5f));
     }
 
     public void decreasePrice(Slot _slot)
     {
         _slot.SetPriceNow((int)(_slot.priceNow * 0.8f));
-        _slot.panicModifier = 20;
+        _slot.panicModifier = 30;
     }
 
     public void IncreaseAmount(Slot _slot)
@@ -74,9 +74,36 @@ public class CardManager : MonoBehaviour
 
     public void IncreasePriceAll()
     {
+        int i = 0;
         foreach (Slot slot in GameManager.instance.slotsList)
         {
-            slot.SetPriceNow((int)(slot.priceNow * 1.05f));
+            if (slot.buyAmount > 0)
+            {
+                i++;
+            }
+        }
+
+        foreach (Slot slot in GameManager.instance.slotsList)
+        {
+            slot.SetPriceNow((int)(slot.priceNow * (1 + i * 0.1f)));
+        }
+    }
+
+    public void DoubleMoney()
+    {
+        int i = 0;
+        foreach (Slot slot in GameManager.instance.slotsList)
+        {
+            if (slot.buyAmount > 0)
+            {
+                i++;
+            }
+
+            if (i >= 2)
+            {
+                Player.instance.AddMoney(Player.instance.money);
+                break;
+            }
         }
     }
 
