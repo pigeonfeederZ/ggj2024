@@ -5059,9 +5059,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1576134710}
   audioList:
-  - {fileID: 8300000, guid: dc55eb7098334ba44ac267fdce7ab8bc, type: 3}
+  - {fileID: 8300000, guid: 123b14219b12c9f4ba0346cbc6533480, type: 3}
   - {fileID: 8300000, guid: 6d04508439a139840adc730ab25d8d1f, type: 3}
   - {fileID: 8300000, guid: c3997f757b28b9a4ba2abcbd1c9ee180, type: 3}
+  - {fileID: 8300000, guid: dc55eb7098334ba44ac267fdce7ab8bc, type: 3}
   audioSource2: {fileID: 1576134712}
   voiceList:
   - {fileID: 8300000, guid: aec879df43001414aa7ca32dd9d5552e, type: 3}

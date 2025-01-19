@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
+    void Start()
+    {
+        AudioManager.instance.PlayMusic(3);
+    }
+
     public void InitiateWholeGame()
     {
         goodsList.Clear();

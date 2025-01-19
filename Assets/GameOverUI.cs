@@ -13,5 +13,7 @@ public class GameOverUI : MonoBehaviour
     {
         maxMoneyText.text = "Max Money: $" + Player.instance.playerMaxMoney.ToString() + " !";
         currentMoneyText.text = "Money Now: $" + Player.instance.allMoney.ToString() + " !";
+
+        AudioManager.instance.PlayMusic(3);
     }
 }
