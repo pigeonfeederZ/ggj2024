@@ -27,11 +27,6 @@ public class Player : MonoBehaviour
             instance = this;
     }
 
-    void Start()
-    {
-        ShowMoney();
-        ShowAllMoney();
-    }
 
     public void AddMoney(long amount)
     {
@@ -72,7 +67,7 @@ public class Player : MonoBehaviour
         ShowMoney();
     }
 
-    private void ShowMoney()
+    public void ShowMoney()
     {
         int textLen = moneyOld.ToString().Length;
         moneyText.fontSize = Mathf.Min((int)(300 / textLen * 2), 60);
@@ -100,7 +95,7 @@ public class Player : MonoBehaviour
         ShowAllMoney();
     }
 
-    private void ShowAllMoney()
+    public void ShowAllMoney()
     {
         string textCombined = allMoneyOld.ToString() + " / " + aimMoney.ToString();
 

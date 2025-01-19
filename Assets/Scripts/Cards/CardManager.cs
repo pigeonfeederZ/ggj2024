@@ -85,6 +85,13 @@ public class CardManager : MonoBehaviour
     public void takeCardEffect()
     {
         Debug.Log("Take Card Effect");
+
+        if (cardChosenSlot.card.needToSelectSlot && cardSlotChosen == null)
+        {
+            return;
+        }
+
+
         switch (cardChosen)
         {
             case 1:
