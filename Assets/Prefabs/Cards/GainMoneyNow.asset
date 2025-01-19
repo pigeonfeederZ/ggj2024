@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GainMoneyNow
   m_EditorClassIdentifier: 
   cardName: Gain Money Now
-  description: Select a good you have now and gain 20% of how much it deserves.
+  description: Select a good you have now and gain 100% of how much it deserves.
   icon: {fileID: 21300000, guid: 5f403482d8db614458575c7580546626, type: 3}
   cardID: 3
   needToSelectSlot: 1
