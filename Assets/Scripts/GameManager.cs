@@ -190,6 +190,7 @@ public class GameManager : MonoBehaviour
         round++;
 
         //播放一段过场动画
+        UIManager.instance.ShowSettleDownUI();
 
         Player.instance.AimUpdate();
         RoundManager.instance.ChangeToRound(round);
