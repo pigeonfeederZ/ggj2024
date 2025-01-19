@@ -90,7 +90,7 @@ public class Slot : MonoBehaviour
     {
         slotImage.SetImage(goods.icon);
 
-        slotBackground.GetComponent<Image>().sprite = RoundManager.instance.priceIcon[goods.round];
+        priceBackground.GetComponent<Image>().sprite = RoundManager.instance.priceIcon[goods.round];
 
     }
 
