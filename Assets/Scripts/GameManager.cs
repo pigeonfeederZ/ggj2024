@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
             instance = this;
     }
 
+    public void InitiateWithoutGoodsList()
+    {
+        InitiateGoods(goodsList);
+    }
+
     // 为每个Slot添加的物品
     public void InitiateGoods(List<Goods> goodsList)
     {
@@ -47,7 +52,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         aimMoneyText.text = aimMoney.ToString();
-        InitiateGoods(goodsList);
+
 
     }
 
