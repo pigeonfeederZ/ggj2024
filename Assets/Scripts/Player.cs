@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     private long allMoneyOld;
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
 
+    public int playerMaxMoney = 0;
+
 
     [SerializeField] private TextMeshProUGUI moneyText;
     public TextMeshProUGUI aimMoneyText;
@@ -44,6 +46,11 @@ public class Player : MonoBehaviour
     {
         ChangeMoney();
         ChangeAllMoney();
+
+        if (allMoney > playerMaxMoney)
+        {
+            playerMaxMoney = (int)allMoney;
+        }
     }
 
     private void ChangeMoney()
