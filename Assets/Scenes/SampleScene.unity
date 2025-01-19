@@ -3331,6 +3331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f2f0b84cecd54165a87b9124e537556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgInSettleDown: {fileID: 1762523711}
+  panelInSettleDown: {fileID: 1300372420}
   inTrunUI: {fileID: 1600478188}
   settleDownUI: {fileID: 1260167488}
   gameOverUI: {fileID: 426808243}
@@ -3339,6 +3341,7 @@ MonoBehaviour:
   ShopButton: {fileID: 1234312319}
   UseCardButton: {fileID: 889412144}
   NextTurnButton: {fileID: 2139088938}
+  moveDuration: 1
 --- !u!4 &1099047221
 Transform:
   m_ObjectHideFlags: 0
