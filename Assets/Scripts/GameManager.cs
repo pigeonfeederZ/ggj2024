@@ -146,6 +146,7 @@ public class GameManager : MonoBehaviour
         {
             _slot.isBreak = true;
             _slot.amountOfPriceChange = 0;
+            AudioManager.instance.PlayVoice(0);
         }
     }
 

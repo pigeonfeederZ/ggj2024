@@ -215,8 +215,9 @@ public class CardManager : MonoBehaviour
         {
             return;
         }
-        AddCardCost();
+
         UIManager.instance.SelectShopPanel();
+        AddCardCost();
         distributeCard();
     }
 }

@@ -34,12 +34,16 @@ public class Player : MonoBehaviour
     {
         moneyOld = money;
         money += amount;
+
+        AudioManager.instance.PlayVoice(1);
     }
 
     public void RemoveMoney(long amount)
     {
         moneyOld = money;
         money -= amount;
+
+        AudioManager.instance.PlayVoice(1);
     }
 
     private void FixedUpdate()
