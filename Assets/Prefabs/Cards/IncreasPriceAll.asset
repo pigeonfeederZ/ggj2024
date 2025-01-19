@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: IncreasePriceAll
   description: Increase all the price by n% in which n is the number of goods you
     have.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c08442b4bfafb1f40a5b0d473f91eb9f, type: 3}
   cardID: 7
   needToSelectSlot: 0

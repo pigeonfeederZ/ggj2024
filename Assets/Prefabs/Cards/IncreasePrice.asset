@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: Increase Price
   description: If the bubble of the good don't break, its price will increase largely
     in the next turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: b04782f5a6d48ac42ac61ad671760ca1, type: 3}
   cardID: 2
   needToSelectSlot: 1
