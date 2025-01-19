@@ -307,10 +307,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6785044941982395866, guid: a1e04ce26c344405985abe466a63e303, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 380901837}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1e04ce26c344405985abe466a63e303, type: 3}
 --- !u!1 &108384462
 GameObject:
@@ -550,15 +547,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 1295392514}
-  frame: {fileID: 1341761652}
   backgroundList:
   - {fileID: 21300000, guid: 7bb5986d2aef9d6439fc481ef93d6f0c, type: 3}
-  - {fileID: 21300000, guid: 5513aa85eef4d6c48bda58de8150c976, type: 3}
+  - {fileID: 21300000, guid: 7acf6d1f0090a6c43b9c425117b28b82, type: 3}
   - {fileID: 21300000, guid: e777d79b59b644645917b3ecaf2ca89f, type: 3}
+  frame: {fileID: 1341761652}
   frameList:
   - {fileID: 21300000, guid: b78e121e8098fed4f92bf384c2c3d478, type: 3}
-  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: a3b216e7af1fd184ea9bc803adce08f4, type: 3}
   - {fileID: 21300000, guid: 5bc10dc84e144ea4e8b8b30b5c500fd5, type: 3}
+  money: {fileID: 1942056179}
+  moneyList:
+  - {fileID: 21300000, guid: 60c8df2008ceb0c42ae8bf5f2e143a14, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 799505d9df9e2734690c63e8b22a3fef, type: 3}
+  moneyAll: {fileID: 1372447441}
+  moneyAllList:
+  - {fileID: 21300000, guid: 40a9207477c9b284fa776178b3bf2401, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: a01a649ac74cd644695eb93bb260556f, type: 3}
+  profile: {fileID: 1376053917}
+  profileList:
+  - {fileID: 21300000, guid: 1ef277318bcdb6e42b0abe117877a28a, type: 3}
+  - {fileID: 21300000, guid: 92f2332f7ebe6ee4fb04fd0688610a22, type: 3}
+  - {fileID: 21300000, guid: 3f1dd0a1dd915e44f85a83ee1723db97, type: 3}
+  shop: {fileID: 1234312319}
+  shopList:
+  - {fileID: 21300000, guid: a048cd725f1355d43becbecd7cb18a17, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 9f29e7a01d8e3dd45b35be9b9a3fdfea, type: 3}
+  useCard: {fileID: 889412144}
+  useCardList:
+  - {fileID: 21300000, guid: eec5c3341a359bb4cb172662e997db93, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: f67eedf945f85a34a9c954a59a2541bb, type: 3}
+  nextTurn: {fileID: 2139088938}
+  nextTurnList:
+  - {fileID: 21300000, guid: da4e430d2299ad94b85bc35e6e957efc, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 5caed998971ef6a409bb6807509516a9, type: 3}
 --- !u!4 &114669651
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,23 +1258,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 377378484}
   m_CullTransparentMesh: 1
---- !u!1 &380901831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6785044941982395866, guid: a1e04ce26c344405985abe466a63e303, type: 3}
-  m_PrefabInstance: {fileID: 42697819}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &380901837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380901831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6ace9f13e55a434f9053c1801a05c45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &426808243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2037,8 +2047,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5f4cdf2d948970f4184b08be02000647, type: 2}
   - {fileID: 11400000, guid: 6d9e8e0bdfe62cc40ac26b9ed6fc465c, type: 2}
   - {fileID: 11400000, guid: bdf2d780fb47549478b699f8eb5f6453, type: 2}
-  aimMoney: 1000
-  aimMoneyText: {fileID: 2102578997}
   round: 0
 --- !u!1 &684838581
 GameObject:
@@ -2446,8 +2454,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   money: 100
   allMoney: 0
+  aimMoney: 1000
   cards: []
   moneyText: {fileID: 1391168690}
+  aimMoneyText: {fileID: 2102578997}
 --- !u!4 &777862667
 Transform:
   m_ObjectHideFlags: 0
@@ -3514,10 +3524,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\xA510"
+  m_text: $10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 14b1629f743aed940bde9f0887be1aae, type: 2}
+  m_sharedMaterial: {fileID: -6462513560260074499, guid: 14b1629f743aed940bde9f0887be1aae, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
