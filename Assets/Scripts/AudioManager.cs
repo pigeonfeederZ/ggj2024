@@ -17,6 +17,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource audioSource;
     public List<AudioClip> audioList = new List<AudioClip>();
+    public AudioSource audioSource2;
+    public List<AudioClip> voiceList = new List<AudioClip>();
 
     public void PlayMusic(int index)
     {
@@ -29,6 +31,23 @@ public class AudioManager : MonoBehaviour
         else
         {
             Debug.LogError("Index out of range");
+        }
+    }
+
+    public void PlayVoice(int index)
+    {
+        if (audioSource2.isPlaying)
+        {
+            // 如果正在播放，则克隆一个新的AudioSource来播放音效
+            AudioSource newSource = gameObject.AddComponent<AudioSource>();
+            newSource.clip = voiceList[index];
+            newSource.Play();
+        }
+        else
+        {
+            // 如果没有播放，直接使用现有的AudioSource播放音效
+            audioSource2.clip = voiceList[index];
+            audioSource2.Play();
         }
     }
 
