@@ -37,6 +37,12 @@ public class GameManager : MonoBehaviour
         foreach (Slot slot in slotsList)
         {
             slot.goods = null;
+            slot.buyAmount = 0;
+            slot.priceNow = 0;
+            slot.priceTotal = 0;
+            slot.priceOrigin = 0;
+            slot.panic = 0;
+
         }
         goodsList.Clear();
         goodsListCopy.ForEach(goods => goodsList.Add(goods));
@@ -49,6 +55,7 @@ public class GameManager : MonoBehaviour
         Player.instance.allMoney = 100;
         Player.instance.ShowMoney();
         Player.instance.ShowAllMoney();
+        Player.instance.playerMaxMoney = 0;
 
         CardManager.instance.cardChosen = -1;
         CardManager.instance.cardChosenSlot = null;
