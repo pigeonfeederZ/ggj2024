@@ -586,6 +586,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: da4e430d2299ad94b85bc35e6e957efc, type: 3}
   - {fileID: 21300000, guid: a86bd5a9452c3164fb9af5146a3c1edc, type: 3}
   - {fileID: 21300000, guid: 5caed998971ef6a409bb6807509516a9, type: 3}
+  priceIcon:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &114669651
 Transform:
   m_ObjectHideFlags: 0
@@ -772,6 +776,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9b33e4158d57246ca961eb4eb4de73d0, type: 2}
   - {fileID: 11400000, guid: 4b74ea22687514fffb3d20a2e92f8629, type: 2}
   - {fileID: 11400000, guid: 250fb737d1d9d46429967881cdefcc96, type: 2}
+  - {fileID: 11400000, guid: a47f407bf7678446880d889e05f4d4c5, type: 2}
   cardSlots:
   - {fileID: 914234454}
   - {fileID: 237449521}
@@ -3799,7 +3804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1211899176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5501,7 +5506,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1600478189
 RectTransform:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlanketCards
   m_EditorClassIdentifier: 
   cardName: Blanket Cards
-  description: A card may have no efforts, or may have enoumous efforts.
+  description: A card may have no efforts, or may have enormous efforts.
   icon: {fileID: 0}
   cardID: 6
   needToSelectSlot: 1
