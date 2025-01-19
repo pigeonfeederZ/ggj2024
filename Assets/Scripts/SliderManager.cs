@@ -51,7 +51,7 @@ public class SliderManager : MonoBehaviour
             slider.interactable = true;
             currentNumberText.text = Mathf.RoundToInt(slider.value).ToString();
             leastNumberText.text = ((int)slider.minValue).ToString();
-            maxNumberText.text = ((int)slider.maxValue).ToString();
+            maxNumberText.text = Mathf.Min((int)slider.maxValue, 99).ToString();
         }
     }
 

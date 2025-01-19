@@ -121,13 +121,13 @@ public class GameManager : MonoBehaviour
 
     public int CalculatePriceAdd(Slot _slot)
     {
-        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.3) * _slot.priceNow) * _slot.priceModifier);
+        return Mathf.RoundToInt(Math.Abs(GetGaussDistributeRandom(0.2 + Math.Log10(_slot.buyAmount + 1), 0.3) * _slot.priceOrigin) * _slot.priceModifier);
     }
 
     public void CalculatePanic(Slot _slot)
     {
 
-        _slot.panic = (int)GetGaussDistributeRandom(80 / 3.14 * Math.Atan(_slot.priceNow - _slot.demand), 5) - _slot.panicModifier;
+        _slot.panic = (int)GetGaussDistributeRandom(100 / 3.14 * Math.Atan(_slot.priceNow / _slot.priceOrigin), 5) - _slot.panicModifier;
 
         Debug.Log(_slot.name + " " + _slot.panic);
         _slot.animator.SetInteger("PanicTrigger", _slot.panic);

@@ -138,8 +138,8 @@ public class CardManager : MonoBehaviour
 
     public void AddCardCost()
     {
-        cardCost += 10;
-        cardCostText.text = cardCost.ToString();
+        cardCost *= 2;
+        cardCostText.text = "¥" + cardCost.ToString();
     }
 
     public void ClearSlotChosen()

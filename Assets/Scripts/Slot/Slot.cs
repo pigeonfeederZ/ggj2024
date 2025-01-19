@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
+using System;
 
 public class Slot : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Slot : MonoBehaviour
     public GameObject priceBackground;
 
     public TextMeshProUGUI priceText;
-    public TextMeshProUGUI ownedValueText;
+    public TextMeshProUGUI ownedAmountText;
 
     public int amountOfPriceChange;
     private int oldPrice;
@@ -44,7 +45,7 @@ public class Slot : MonoBehaviour
     {
         this.goods = goods;
         this.buyAmount = amount;
-        priceOrigin = goods.priceOrigin;
+        priceOrigin = (int)(UnityEngine.Random.Range(10, 50) * Math.Pow(10, goods.round));
         priceText.text = priceOrigin.ToString();
         oldPrice = priceOrigin;
         panic = 0;
@@ -56,14 +57,15 @@ public class Slot : MonoBehaviour
 
         //设置不同阶段商品的demand
         if (goods.round == 0)
-            this.demand = Random.Range(50, 100);
+            this.demand = UnityEngine.Random.Range(50, 100);
         else if (goods.round == 1)
-            this.demand = Random.Range(300, 500);
+            this.demand = UnityEngine.Random.Range(300, 500);
         else if (goods.round == 2)
-            this.demand = Random.Range(1000, 2000);
+            this.demand = UnityEngine.Random.Range(1000, 2000);
 
         ShowGoods();
         SetPriceNow(priceOrigin);
+        ShowPrice();
     }
 
     //增加购买数量
@@ -122,7 +124,7 @@ public class Slot : MonoBehaviour
 
 
         priceTotal = (long)buyAmount * (long)priceNow;
-        ownedValueText.text = priceTotal.ToString();
+        ownedAmountText.text = buyAmount.ToString();
     }
 
     private void FixedUpdate()
