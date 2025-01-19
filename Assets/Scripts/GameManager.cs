@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
 
     public void InitiateWholeGame()
     {
+        foreach (Slot slot in slotsList)
+        {
+            slot.goods = null;
+        }
         goodsList.Clear();
         goodsListCopy.ForEach(goods => goodsList.Add(goods));
 
