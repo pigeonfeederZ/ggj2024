@@ -48,6 +48,13 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        long moneyOfSlots = 0;
+        foreach (Slot slot in GameManager.instance.slotsList)
+        {
+            moneyOfSlots += slot.priceTotal;
+        }
+        allMoney = moneyOfSlots + money;
+
         ChangeMoney();
         ChangeAllMoney();
 
