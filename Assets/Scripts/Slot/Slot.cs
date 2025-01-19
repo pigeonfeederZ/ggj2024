@@ -89,6 +89,9 @@ public class Slot : MonoBehaviour
     public void ShowGoods()
     {
         slotImage.SetImage(goods.icon);
+
+        slotBackground.GetComponent<Image>().sprite = RoundManager.instance.priceIcon[goods.round];
+
     }
 
     //显示Slot的背景
