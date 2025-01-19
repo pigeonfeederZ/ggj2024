@@ -111,7 +111,7 @@ public class Slot : MonoBehaviour
         }
 
         else
-            priceText.text = "0";
+            priceText.text = "$0";
 
 
         priceTotal = (long)buyAmount * (long)priceNow;
