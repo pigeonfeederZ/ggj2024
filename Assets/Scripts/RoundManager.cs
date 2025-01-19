@@ -39,7 +39,7 @@ public class RoundManager : MonoBehaviour
 
     public void ChangeToRound(int _round)
     {
-        UIManager.instance.SelectInTurnUI();
+        // UIManager.instance.SelectInTurnUI();
         GameManager.instance.InitiateGoods(GameManager.instance.goodsList);
         background.GetComponent<Image>().sprite = backgroundList[_round];
         frame.GetComponent<Image>().sprite = frameList[_round];

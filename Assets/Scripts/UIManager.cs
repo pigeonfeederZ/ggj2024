@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
     public GameObject UseCardButton;
     public GameObject NextTurnButton;
 
+    public GameObject switchUI;
+    public Image switchImg;
+
     public float moveDuration = 2f;
 
     public void SelectMainMenulUI()
@@ -47,10 +50,85 @@ public class UIManager : MonoBehaviour
 
     public void SelectGameOverUI()
     {
-        gameOverUI.gameObject.SetActive(true);
-        inTrunUI.gameObject.SetActive(false);
-        settleDownUI.gameObject.SetActive(false);
-        MainMenulUI.gameObject.SetActive(false);
+        SwitchUI(0);
+    }
+
+    public void SwitchUI(int id)
+    {
+        Color color = switchImg.color;
+        color.a = 0f;
+        switchImg.color = color;
+
+        StartCoroutine(SwitchCoroutine1(id));
+    }
+
+    private IEnumerator SwitchCoroutine1(int id)
+    {
+        switchUI.gameObject.SetActive(true);
+        float elapsedTime = 0f;
+
+        yield return new WaitForSeconds(1f);
+
+        // 执行图片移动和背景渐变
+        while (elapsedTime < moveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            // 计算当前透明度和位置
+            float t = elapsedTime / moveDuration;
+
+            // 背景颜色渐变
+            float alpha = Mathf.Lerp(0f, 1f, t);
+            Color color = switchImg.color;
+            color.a = alpha;
+            switchImg.color = color;
+
+            yield return null; // 等待下一帧
+        }
+
+        Color finalColor = switchImg.color;
+        finalColor.a = 1f;
+        switchImg.color = finalColor;
+
+        if (id == 0)
+        {
+            gameOverUI.gameObject.SetActive(true);
+            inTrunUI.gameObject.SetActive(false);
+            settleDownUI.gameObject.SetActive(false);
+            MainMenulUI.gameObject.SetActive(false);
+        }
+        yield return new WaitForSeconds(0.2f);
+
+        StartCoroutine(SwitchCoroutine2());
+    }
+
+    private IEnumerator SwitchCoroutine2()
+    {
+        float elapsedTime = 0f;
+
+
+        // 执行图片移动和背景渐变
+        while (elapsedTime < moveDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            // 计算当前透明度和位置
+            float t = elapsedTime / moveDuration;
+
+            // 背景颜色渐变
+            float alpha = Mathf.Lerp(1f, 0f, t);
+            Color color = switchImg.color;
+            color.a = alpha;
+            switchImg.color = color;
+
+            yield return null; // 等待下一帧
+        }
+
+        Color finalColor = switchImg.color;
+        finalColor.a = 0f;
+        switchImg.color = finalColor;
+
+        switchUI.gameObject.SetActive(false);
     }
 
     public void SelectShopPanel()
