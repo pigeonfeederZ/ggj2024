@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Dounble Money
   description: If you have more than 2 kinds of goods, money in your hand double.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 68928f9e157a562408c24526c014bd27, type: 3}
   cardID: 8
   needToSelectSlot: 0

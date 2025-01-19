@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: Decreas Price
   description: Decrease the price of selected good. Meanwhile, decrease its break
     possibility in the next turn.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 2536eb34f2f38e041b13bd651a09e889, type: 3}
   cardID: 4
   needToSelectSlot: 1
