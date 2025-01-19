@@ -47,6 +47,7 @@ public class Slot : MonoBehaviour
         priceOrigin = (int)UnityEngine.Random.Range((int)(10 * Math.Pow(10, goods.round)), (int)(50 * Math.Pow(10, goods.round)));
         priceText.text = priceOrigin.ToString();
         oldPrice = priceOrigin;
+        priceNow = priceOrigin;
         panic = -10;
         animator.SetInteger("PanicTrigger", panic);
         amountOfPriceChange = 0;
@@ -88,6 +89,9 @@ public class Slot : MonoBehaviour
     public void ShowGoods()
     {
         slotImage.SetImage(goods.icon);
+
+        slotBackground.GetComponent<Image>().sprite = RoundManager.instance.priceIcon[goods.round];
+
     }
 
     //显示Slot的背景

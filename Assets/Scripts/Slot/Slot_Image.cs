@@ -8,6 +8,7 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
 {
     private Image image;
     private Slot slot;
+    public float fadeDuration = 0.5f;
     public bool canClick = true;
 
     private void Awake()
@@ -19,6 +20,35 @@ public class Slot_Image : MonoBehaviour, IPointerClickHandler
     public void SetImage(Sprite _image)
     {
         image.sprite = _image;
+
+        Color color = image.color;
+        color.a = 0;
+        image.color = color;
+
+        StartCoroutine(FadeIn());
+
+
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / fadeDuration);
+            Color color = image.color;
+            color.a = alpha;
+            image.color = color;
+
+            yield return null;
+        }
+
+        // 确保完全不透明
+        Color finalColor = image.color;
+        finalColor.a = 1f;
+        image.color = finalColor;
     }
 
     public void OnPointerClick(PointerEventData eventData)

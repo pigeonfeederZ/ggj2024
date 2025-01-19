@@ -12,5 +12,6 @@ public class BubbleAnim : MonoBehaviour
             slot.AddGoods(GameManager.instance.goodsList[0], 0);
             GameManager.instance.goodsList.RemoveAt(0);
         }
+
     }
 }

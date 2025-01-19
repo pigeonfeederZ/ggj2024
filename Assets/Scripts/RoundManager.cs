@@ -35,6 +35,7 @@ public class RoundManager : MonoBehaviour
     public List<Sprite> useCardList = new List<Sprite>();
     public GameObject nextTurn;
     public List<Sprite> nextTurnList = new List<Sprite>();
+    public List<Sprite> priceIcon = new List<Sprite>();
 
     public void ChangeToRound(int _round)
     {
