@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance { get; private set; }
     public List<Slot> slotsList = new List<Slot>();
     public List<Goods> goodsList = new List<Goods>();
+    public List<Goods> goodsListCopy = new List<Goods>();
 
     public int round = 0;
 
@@ -24,6 +25,30 @@ public class GameManager : MonoBehaviour
             Destroy(instance.gameObject);
         else
             instance = this;
+    }
+
+    public void InitiateWholeGame()
+    {
+        goodsList.Clear();
+        goodsListCopy.ForEach(goods => goodsList.Add(goods));
+        InitiateWithoutGoodsList();
+        round = 0;
+        Player.instance.aimMoney = 1000;
+        Player.instance.money = 100;
+        Player.instance.allMoney = 100;
+        Player.instance.ShowMoney();
+        Player.instance.ShowAllMoney();
+
+        CardManager.instance.cardChosen = -1;
+        CardManager.instance.cardChosenSlot = null;
+        CardManager.instance.cardSlotChosen = null;
+        CardManager.instance.cardCost = 10;
+        CardManager.instance.cardCostText.text = "$10";
+
+        ComfirmManager.instance.InitiateConfirm();
+
+        RoundManager.instance.ChangeToRound(0);
+
     }
 
     public void InitiateWithoutGoodsList()
@@ -46,10 +71,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-    }
 
     //过回合后增加商品价格
     public void NextTurn()
