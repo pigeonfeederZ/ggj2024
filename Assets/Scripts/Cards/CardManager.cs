@@ -52,7 +52,7 @@ public class CardManager : MonoBehaviour
 
     public void IncreaseAmount(Slot _slot)
     {
-        _slot.buyAmount = (int)(_slot.buyAmount * 1.2f);
+        _slot.buyAmount = _slot.buyAmount * Random.Range(2, 4);
     }
 
     public void BlanketEffect(Slot _slot)
