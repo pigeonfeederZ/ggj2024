@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         round = 0;
         InitiateWithoutGoodsList();
 
-        Player.instance.aimMoney = 1000;
+        Player.instance.aimMoney = 500;
         Player.instance.money = 100;
         Player.instance.allMoney = 100;
         Player.instance.ShowMoney();

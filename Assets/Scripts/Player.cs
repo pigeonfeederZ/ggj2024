@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public static Player instance { get; private set; }
     public long money; // 玩家拥有的金钱
     public long allMoney; //玩家总资产
-    public int aimMoney = 1000;
+    public int aimMoney = 500;
     private long moneyOld;
     private long allMoneyOld;
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
@@ -109,9 +109,9 @@ public class Player : MonoBehaviour
         int round = GameManager.instance.round;
         // 更新目标金额
         if (round == 1)
-            aimMoney = 10000;
+            aimMoney = 5000;
         else if (round == 2)
-            aimMoney = 100000;
+            aimMoney = 50000;
         Debug.Log("Aim Update");
         ShowAllMoney();
     }
