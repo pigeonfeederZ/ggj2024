@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     public List<Slot> slotsList = new List<Slot>();
     public List<Goods> goodsList = new List<Goods>();
 
-    public int aimMoney = 1000;
-    public TextMeshProUGUI aimMoneyText;
-
     public int round = 0;
 
 
@@ -51,8 +48,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        aimMoneyText.text = aimMoney.ToString();
-
 
     }
 
@@ -173,20 +168,11 @@ public class GameManager : MonoBehaviour
 
         //播放一段过场动画
 
-        AimUpdate();
+        Player.instance.AimUpdate();
         RoundManager.instance.ChangeToRound(round);
     }
 
-    public void AimUpdate()
-    {
-        // 更新目标金额
-        if (round == 1)
-            aimMoney = 10000;
-        else if (round == 2)
-            aimMoney = 100000;
-        Debug.Log("Aim Update");
-        aimMoneyText.text = aimMoney.ToString();
-    }
+
 
     public void CheckGameEnd()
     {
@@ -194,7 +180,7 @@ public class GameManager : MonoBehaviour
         {
             UIManager.instance.SelectGameOverUI();
         }
-        else if (Player.instance.allMoney >= aimMoney)
+        else if (Player.instance.allMoney >= Player.instance.aimMoney)
         {
             EnterNextRound();
         }

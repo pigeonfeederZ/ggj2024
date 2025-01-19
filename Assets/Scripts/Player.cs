@@ -10,14 +10,14 @@ public class Player : MonoBehaviour
     public static Player instance { get; private set; }
     public long money; // 玩家拥有的金钱
     public long allMoney; //玩家总资产
-    private long moneyChangeAmount;
-    private long allMoneyChangeAmount;
+    public int aimMoney = 1000;
     private long moneyOld;
     private long allMoneyOld;
     public List<Cards> cards = new List<Cards>(); // 玩家拥有的卡牌
 
 
     [SerializeField] private TextMeshProUGUI moneyText;
+    public TextMeshProUGUI aimMoneyText;
 
     void Awake()
     {
@@ -29,7 +29,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        moneyText.text = money.ToString();
+        ShowMoney();
+        ShowAllMoney();
     }
 
     public void AddMoney(long amount)
@@ -47,11 +48,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         ChangeMoney();
+        ChangeAllMoney();
     }
 
     private void ChangeMoney()
     {
-        moneyChangeAmount = money - moneyOld;
+        long moneyChangeAmount = money - moneyOld;
         if (moneyChangeAmount == 0)
         {
             return;
@@ -73,12 +75,50 @@ public class Player : MonoBehaviour
     private void ShowMoney()
     {
         int textLen = moneyOld.ToString().Length;
-        if (textLen * 30 > 270)
+        moneyText.fontSize = Mathf.Min((int)(300 / textLen * 2), 60);
+        moneyText.text = moneyOld.ToString();
+    }
+
+    private void ChangeAllMoney()
+    {
+        long AllMoneyChangeAmount = allMoney - allMoneyOld;
+        if (AllMoneyChangeAmount == 0)
         {
-            moneyText.fontSize = (int)(300 / textLen * 2);
+            return;
         }
 
-        moneyText.text = moneyOld.ToString();
+        if (Math.Abs(AllMoneyChangeAmount) < 10)
+        {
+            allMoneyOld = allMoney;
+        }
+        else
+        {
+            long changeThisTurn = (long)(AllMoneyChangeAmount / 5);
+            allMoneyOld += changeThisTurn;
+        }
+
+        ShowAllMoney();
+    }
+
+    private void ShowAllMoney()
+    {
+        string textCombined = allMoneyOld.ToString() + " / " + aimMoney.ToString();
+
+        int textLen = textCombined.Length;
+        aimMoneyText.fontSize = Mathf.Min((int)(300 / textLen * 2), 60);
+        aimMoneyText.text = textCombined;
+    }
+
+    public void AimUpdate()
+    {
+        int round = GameManager.instance.round;
+        // 更新目标金额
+        if (round == 1)
+            aimMoney = 10000;
+        else if (round == 2)
+            aimMoney = 100000;
+        Debug.Log("Aim Update");
+        ShowAllMoney();
     }
 
     public void AddCard(Cards card)
